@@ -1,0 +1,59 @@
+{
+    "plugins": [
+        "-lunr", 
+        "-search",
+        "github-issue-feedback-language",
+        "search-title",
+        "anchorjs",
+        "toggle-chapters",
+        "sharing",
+        "components"     
+    ],
+    "styles": {
+        "website": "./styles/website.css"
+    },
+    "pluginsConfig": {
+        "github-issue-feedback-language": {
+            "repo": "drelaptop/just4test",
+            "branch": "master"
+        },
+        "sharing": {
+            "douban": false,
+            "facebook": true,
+            "google": false,
+            "hatenaBookmark": false,
+            "instapaper": false,
+            "line": false,
+            "linkedin": false,
+            "messenger": false,
+            "pocket": false,
+            "qq": true,
+            "qzone": false,
+            "stumbleupon": false,
+            "twitter": true,
+            "viber": false,
+            "vk": false,
+            "weibo": true,
+            "whatsapp": false,
+            "all": [
+                "facebook", "google", "twitter",
+                "weibo" 
+            ]
+        },
+        "components": {
+            "templatePath": "docs/components",
+            "templates": [
+              {
+                "name": "header",
+                "target": "body",
+                "prepend": "true"
+              },
+              {
+                "name": "footer",
+                "target": "section",
+                "prepend": "false"
+              }
+            ]
+        }
+    }    
+}
