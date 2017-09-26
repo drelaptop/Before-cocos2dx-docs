@@ -1,39 +1,75 @@
-# 关于我们 English index.md
+# en/index.md
 
-我们立志创造一个世界顶级的开源项目
+## some of chapters can be read
 
-关于我们
+# What is Cocos2d-x?
 
-1. Cocos2d-x
-2. Cocos2d-html5
-3. 许可证
-4. 主要贡献者及维护者
-5. 财力支持者
+## About Cocos2d-x
+Started in 2010, Cocos2d-x is an open source, cross-platform game engine. It is
+loaded with powerful features that allows developers to create spectacular games
+with ease.
 
-# 1.Cocos2d-x
- 
-![](./res/xlogo.png)
+## Why choose Cocos2d-x
+Why would you want to choose Cocos2d-x over other available game engines?
 
-Cocos2d-x是MIT许可证下发布的开源游戏引擎，游戏开发快速,简易,功能强大。Cocos2d-x核心优势在于允许开发人员利用C++,Lua及Javascript来进行跨平台部署，覆盖平台包括iOS,Android,Windows Phone,黑莓（BlackBerry）及Tizen等等，省事省力省成本。
+  * Modern C++ API (please refer to the modernizing done in [__version 3.0__](https://github.com/cocos2d/cocos2d-x/blob/cocos2d-x-3.0/docs/RELEASE_NOTES.md#c11-features))
 
-Cocos2d-x用户不仅包括个人开发者和游戏开发爱好者，还包括许多知名大公司如Zynga,Wooga,Gamevil,Glu,GREE,Konami,TinyCo,HandyGames,IGG及Disney Mobile等。截止2013年9月，全球基于Cocos2d-x引擎的游戏下载量高达逾15亿，其中许多还占据苹果应用商店（AppStore）和谷歌应用商店（Google Play）排行榜。同时许多公司如触控,谷歌,微软,ARM,英特尔及黑莓的工程师在Cocos2d-x领域也非常活跃。
+  * Cross-platform - desktop and mobile
 
-# 2.Cocos2d-html5
+  * Capability to test and debug your game on the desktop and then push it to a
+  mobile or desktop target
+  
+  * A vast API of functionality including sprites, actions, animations, particles,
+  transitions, timers, events (touch, keyboard, accelerometer, mouse), sound,
+  file IO, persistence, skeletal animations, 3D
 
-![](./res/html5logo.png)
+## Where to get Cocos2d-x and what do I get?
+You can clone the [__GitHub Repo__](https://github.com/cocos2d/cocos2d-x) and follow the steps in the [__README__](https://github.com/cocos2d/cocos2d-x/blob/v3/README.md). You can also download as part of the Cocos package on our [__download page__](http://cocos2d-x.org/download). No matter if you choose to develop in C++, JavaScript or Lua, everything you need is in one package. The Cocos family of products has a few different pieces.
 
-自2012年3月，[Cocos2d-html5](../../../wiki/cocos2d-js/zh.md)成为Cocos2d-x旗下分支游戏引擎，针对台式电脑,平板电脑及手机中支持HTML5的浏览器而设计。
+  * __Cocos2d-x__ - this is the game engine, itself. It includes the engine and the
+  [__cocos__](http://cocos2d-x.org/docs/editors_and_tools/cocosCLTool/index.html) command-line tool. You can download a [__production__](http://cocos2d-x.org/download)
+  release or stay bleeding edge by cloning our [__GitHub Repo__](https://github.com/cocos2d/cocos2d-x).
 
-# 3.许可证
+  * __Cocos Creator__ - is a unified game development tool. You can create your
+  entire game, from start to finish, using this tool. It uses JavaScript. Lua and
+  C++ support are being added. Read more about [__Cocos Creator__](http://cocos2d-x.org/docs/editors_and_tools/creator/index.html).
 
-上述所有分支游戏引擎均是**MIT**许可证下发布的。
+  * __Cocos Launcher__ - is a graphical tool to create and manage your projects.
+  This is also an easy way to add SDKBOX plugins to your project. [__Documentaion__](http://cocos2d-x.org/docs/cocos/cocos/index.html)
+  is available.
 
-利用cocos2d系列框架，我们可以容易地在iOS, Android, Windows Phone 8, BlackBerry（黑莓）, Marmalade, WindowsXP/Windows7, Linux, Mac OSX, Windows8 Metro 及Native Client (NaCl)上创建游戏或将游戏导入其中。详情请参见[支持平台](../../../wiki/supported-platforms-and-programming-languages/zh.md)。
+  * __Coco Studio__ - is EOL'd and has been replaced by __Cocos Creator__. [__Documentation__](http://cocos2d-x.org/docs/deprecated/studio/index.html)
+  is still available.
 
-# 4.主要贡献者及维护者
+  * __Code IDE__ -  is EOL'd. Common text editors and IDE's can be used instead.
 
-![](./res/contructors.png)
- 
-# 5.财力支持
+## Conventions used in this book
+* `auto` is used for creating local variables.
+* `using namespace cocos2d;` is used to shorten types.
+* each chapter has [__a compilable source code sample__](https://github.com/chukong/programmers-guide-samples) to  demonstrate concepts.
+* class names, methods names and other API components are rendered using fixed fonts. eg: `Sprite`.
+* *italics* are used to notate concepts and keywords.
 
-目前，Cocos2d-x, Cocos2d-html5及CocoStudio由触控科技提供财力支持。欲了解更多有关触控科技公司的信息请点击[chukong-inc.com](http://www.chukong-inc.com)
+## Learning Resources
+* This very guide! You can also get it as a [__PDF__ ](http://cocos2d-x.org/docs/ProgrammersGuide.pdf) and [__ePub__](http://cocos2d-x.org/docs/ProgrammersGuide.epub)
+* [__Sonar Systems Videos__](https://www.youtube.com/user/sonarsystemslimited/search?query=Cocos2d-x)
+* [__Android Fundamentals__](https://developer.android.com/guide/components/fundamentals.html)
+* [__Make School Tutorials__](https://www.makeschool.com/tutorials/)
+* [__Game From Scratch__](http://www.gamefromscratch.com/page/cocos2d-x-CPP-Game-Programming-Tutorial-Series.aspx)
+
+## Spreading the word!
+You can help us spread the word about Cocos2d-x! We would surely appreciate it!
+
+* Talk about us on Facebook! Our [__Facebook Page__](https://www.facebook.com/cocos2dx/)
+* Tweet, Tweet! Our [__Twitter__](https://twitter.com/cocos2dx)
+* Read our [__Blog__](http://blog.Cocos2d-x.org/) and promote it on your social media.
+* Become a [__Regional Coordinator__](http://discuss.Cocos2d-x.org/t/we-need-regional-coordinators/24104)
+
+## Where to get help
+* [__Forums__](http://discuss.Cocos2d-x.org)
+* [__Bug Tracker__](https://github.com/cocos2d/cocos2d-x/issues)
+* IRC. We are in [__Freenode__](https://webchat.freenode.net/) in the _#cocos2d_ channel
+* __`cpp-tests`__ project. This project is our basis for testing. Use this project to
+learn how we implement the functionality of the engine. This project is located in
+__Cocos2d-x_root/build.__
+* [__API Reference__](http://cocos2d-x.org/docs/api-ref/index.html).
