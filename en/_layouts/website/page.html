@@ -17,10 +17,10 @@
     function toggleLanguage () {
         var path = location.href;
         // console.log(path);
-        if (path.indexOf('/zh-hans') !== -1) {
-            path = path.replace(/\/zh-hans[\/$\s]/i, '/en/');
+        if (path.indexOf('/zh') !== -1) {
+            path = path.replace(/\/zh[\/$\s]/i, '/en/');
         } else if (path.indexOf('/en') !== -1) {
-            path = path.replace(/\/en[\/$\s]/i, '/zh-hans/');
+            path = path.replace(/\/en[\/$\s]/i, '/zh/');
         }
         // console.log('after: ' + path);    
         location.assign(path);
