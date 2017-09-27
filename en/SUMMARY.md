@@ -1,4 +1,4 @@
-# Cocos2d-x Programmers Guide v3.15
+# Cocos2d-x Programmers Guide v3.16
 
 ## What is Cocos2d-x
 
@@ -34,7 +34,7 @@
 - [...]()
 
 ## UI Components
- 
+
  - [Widgets, oh, my!](./ui_components.md)
  - [Label]()
  - [Menu]()
