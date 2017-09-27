@@ -1,13 +1,14 @@
 {
     "plugins": [
-        "-lunr", 
+        "-lunr",
         "-search",
         "github-issue-feedback-language",
         "search-title",
         "anchorjs",
         "toggle-chapters",
         "sharing",
-        "components"     
+        "components",
+        "codetabs"
     ],
     "styles": {
         "website": "./styles/website.css"
@@ -19,7 +20,7 @@
         },
         "sharing": {
             "douban": false,
-            "facebook": true,
+            "facebook": false,
             "google": false,
             "hatenaBookmark": false,
             "instapaper": false,
@@ -27,17 +28,17 @@
             "linkedin": false,
             "messenger": false,
             "pocket": false,
-            "qq": true,
+            "qq": false,
             "qzone": false,
             "stumbleupon": false,
-            "twitter": true,
+            "twitter": false,
             "viber": false,
             "vk": false,
-            "weibo": true,
+            "weibo": false,
             "whatsapp": false,
             "all": [
                 "facebook", "google", "twitter",
-                "weibo" 
+                "weibo"
             ]
         },
         "components": {
@@ -55,5 +56,5 @@
               }
             ]
         }
-    }    
+    }
 }
