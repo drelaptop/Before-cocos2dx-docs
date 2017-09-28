@@ -7,16 +7,7 @@ do it over a span of time.
 
 Example of `MoveTo` and `MoveBy` action:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // Move sprite to position 50,10 in 2 seconds.
 auto moveTo = MoveTo::create(2, Vec2(50, 10));
 mySprite1->runAction(moveTo);
@@ -24,14 +15,7 @@ mySprite1->runAction(moveTo);
 // Move sprite 20 points to right in 2 seconds
 auto moveBy = MoveBy::create(2, Vec2(20,0));
 mySprite2->runAction(moveBy);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // Move sprite to position 50,10 in 2 seconds.
 var moveTo = new cc.MoveTo(2, cc._p(50, 10));
 mySprite1.runAction(moveTo);
@@ -39,9 +23,7 @@ mySprite1.runAction(moveTo);
 // Move sprite 20 points to right in 2 seconds
 var moveBy = new cc.MoveBy(2, cc._p(20,0));
 mySprite2.runAction(moveBy);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ### By and To, what is the difference?
 You will notice that each `Action` has a __By__ and __To__ version. Why? Because
@@ -49,16 +31,7 @@ they are different in what they accomplish. A __By__ is relative to the current
 state of the `Node`. A __To__ action is absolute, meaning it doesn't take into
 account the current state of the `Node`. Let's take a look at a specific example:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 mySprite->setPosition(Vec2(200, 256));
 
@@ -77,14 +50,7 @@ auto delay = DelayTime::create(1);
 auto seq = Sequence::create(moveBy, delay, moveTo, nullptr);
 
 mySprite->runAction(seq);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mysprite_png);
 mySprite.setPosition(cc._p(200, 256));
 
@@ -103,9 +69,7 @@ var delay = new cc.DelayTime(1);
 var seq = new cc.Sequence(moveBy, delay, moveTo);
 
 mySprite.runAction(seq);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](actions-img/i0.png "")
 
@@ -116,16 +80,7 @@ Let's take a look at a few examples:
 ### Move
 __Move__ a `Node` over a set period of time.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 // Move a sprite to a specific location over 2 seconds.
@@ -137,14 +92,7 @@ mySprite->runAction(moveTo);
 auto moveBy = MoveBy::create(2, Vec2(50, 0));
 
 mySprite->runAction(moveBy);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mysprite_png);
 
 // Move a sprite to a specific location over 2 seconds.
@@ -156,25 +104,14 @@ mySprite.runAction(moveTo);
 var moveBy = new cc.MoveBy(2, cc._p(50, 0));
 
 mySprite.runAction(moveBy);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](actions-img/i1.png "")
 
 ### Rotate
 __Rotate__ a `Node` clockwise over 2 seconds.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 // Rotates a Node to the specific angle over 2 seconds
@@ -184,14 +121,7 @@ mySprite->runAction(rotateTo);
 // Rotates a Node clockwise by 40 degree over 2 seconds
 auto rotateBy = RotateBy::create(2.0f, 40.0f);
 mySprite->runAction(rotateBy);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mysprite_png);
 
 // Rotates a Node to the specific angle over 2 seconds
@@ -201,25 +131,14 @@ mySprite.runAction(rotateTo);
 // Rotates a Node clockwise by 40 degree over 2 seconds
 var rotateBy = new cc.RotateBy(2.0, 40.0);
 mySprite.runAction(rotateBy);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](actions-img/i3.png "")
 
 ### Scale
 __Scale__ a `Node` by 10 over 2 seconds.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 // Scale uniformly by 3x over 2 seconds
@@ -237,14 +156,7 @@ mySprite->runAction(scaleTo);
 // Scale X to 5 and Y to 3x over 2 seconds
 auto scaleTo = ScaleTo::create(2.0f, 3.0f, 3.0f);
 mySprite->runAction(scaleTo);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mysprite_png);
 
 // Scale uniformly by 3x over 2 seconds
@@ -262,9 +174,7 @@ mySprite.runAction(scaleTo);
 // Scale X to 5 and Y to 3x over 2 seconds
 var scaleTo = new cc.ScaleTo(2.0, 3.0, 3.0);
 mySprite.runAction(scaleTo);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](actions-img/i4.png "")
 
@@ -273,16 +183,7 @@ __Fade__ a `Node`.
 
 It modifies the opacity from 0 to 255. The *reverse* of this action is `FadeOut`
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 // fades in the sprite in 1 seconds
@@ -292,14 +193,7 @@ mySprite->runAction(fadeIn);
 // fades out the sprite in 2 seconds
 auto fadeOut = FadeOut::create(2.0f);
 mySprite->runAction(fadeOut);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mysprite_png);
 
 // fades in the sprite in 1 seconds
@@ -309,9 +203,7 @@ mySprite.runAction(fadeIn);
 // fades out the sprite in 2 seconds
 var fadeOut = new cc.FadeOut(2.0);
 mySprite.runAction(fadeOut);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](actions-img/i2.png "")
 
@@ -319,16 +211,7 @@ mySprite.runAction(fadeOut);
 `Tint` a `Node` that implements the `NodeRGB` protocol from current the tint to \
 a custom tine.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 // Tints a node to the specified RGB values
@@ -338,14 +221,7 @@ mySprite->runAction(tintTo);
 // Tints a node BY the delta of the specified RGB values.
 auto tintBy = TintBy::create(2.0f, 120.0f, 232.0f, 254.0f);
 mySprite->runAction(tintBy);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mysprite_png);
 
 // Tints a node to the specified RGB values
@@ -355,10 +231,7 @@ mySprite.runAction(tintTo);
 // Tints a node BY the delta of the specified RGB values.
 var tintBy = new cc.TintBy(2.0, 120.0, 232.0, 254.0);
 mySprite.runAction(tintBy);
-```
-
-  </div>
-
+{%- endcodetabs %}
 
 ![](actions-img/i5.png "")
 
@@ -367,16 +240,7 @@ With `Animate` it is possible to do simple __flipbook__ animation with your `Spr
 objects. This is simply replacing the __display frame__ at set intervals for the
 duration of the animation. Let's consider this example:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 // now lets animate the sprite we moved
@@ -401,14 +265,8 @@ Animate* animate = Animate::create(animation);
 
 // run it and repeat it forever
 mySprite->runAction(RepeatForever::create(animate));
-```
+{%- language name="JavaScript", type="js" -%}
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
 var mySprite = new Sprite(res.mysprite_png);
 
 // now lets animate the sprite we moved.
@@ -432,9 +290,7 @@ var animate = new cc.Animate(animation);
 
 // run it and repeat it forever
 mySprite.runAction(cc.RepeatForever(animate));
-```
-
-  </div>
+{%- endcodetabs %}
 
 It's hard to show an animation in text, so please run the example __Programmer
 Guide Sample__ code to see this in action!
@@ -455,16 +311,7 @@ Cocos2d-x supports most of the easing function in the above graph. They are also
 simple to implement. Lets look at a specific use case. Lets drop a `Sprite` object
 from the top of the screen and make it bounce.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create a sprite
 auto mySprite = Sprite::create("mysprite.png");
 
@@ -485,18 +332,7 @@ auto seq1 = Sequence::create(move_ease_in, delay, move_ease_in_back,
 
 // run the sequence and repeat forever.
 mySprite->runAction(RepeatForever::create(seq1));
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 Run the example __Programmer Guide Sample__ code to see this in action!
 
@@ -512,16 +348,7 @@ objects that Cocos2d-x provides. This is what a `Sequence` looks like when execu
 
 ### An example sequence
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 // create a few actions.
@@ -543,18 +370,7 @@ auto seq = Sequence::create(jump, callbackJump, rotate, callbackRotate, nullptr)
 
 // run it
 mySprite->runAction(seq);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 So what does this `Sequence` action do?
 
@@ -577,105 +393,36 @@ to help achieve specific effects that you cannot otherwise. Combining `Spawn` an
 
 Example, given:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create 2 actions and run a Spawn on a Sprite
 auto mySprite = Sprite::create("mysprite.png");
 
 auto moveBy = MoveBy::create(10, Vec2(400,100));
 auto fadeTo = FadeTo::create(2.0f, 120.0f);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 Using a `Spawn`:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // running the above Actions with Spawn.
 auto mySpawn = Spawn::createWithTwoActions(moveBy, fadeTo);
 mySprite->runAction(mySpawn);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 and consecutive __runAction()__ statements:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // running the above Actions with consecutive runAction() statements.
 mySprite->runAction(moveBy);
 mySprite->runAction(fadeTo);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 Both would produce the same result. However, one can use `Spawn` in a `Sequence`.
 This flowchart shows how this might look:
 
 ![](actions-img/spawn_in_a_sequence.png "")
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create a Sprite
 auto mySprite = Sprite::create("mysprite.png");
 
@@ -692,18 +439,7 @@ auto seq = Sequence::create(moveBy, mySpawn, moveBy, nullptr);
 
 // run it
 mySprite->runAction(seq);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 Run the example __Programmer Guide Sample__ code to see this in action!
 
@@ -719,29 +455,9 @@ are currently set at.
 Let's hash through an example, say you have a __heroSprite__ and it has a position
 of __(0,0)__. If you run an `Action` of:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 MoveBy::create(10, Vec2(400,100));
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 This will move __heroSprite__ from *(0,0)* to *(400, 100)* over the course of
 *10 seconds*. __heroSprite__ now has a new position of *(400, 100)* and more
@@ -749,29 +465,9 @@ importantly the `Action` has this position in it's __internal state__. Now, say
 you have an __emenySprite__ with a position of *(200, 200)*. If you were to apply
 this same:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 MoveBy::create(10, Vec2(400,100));
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 to your __enemySprite__, it would end up at a position of *(800, 200)* and not
 where you thought it would. Do you see why? It is because the `Action` already
@@ -781,16 +477,7 @@ to your `Node`.
 
 Let's also see this in code, first, incorrect.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create our Sprites
 auto heroSprite = Sprite::create("herosprite.png");
 auto enemySprite = Sprite::create("enemysprite.png");
@@ -804,31 +491,11 @@ heroSprite->runAction(moveBy);
 // run it on our enemy
 enemySprite->runAction(moveBy); // oops, this will not be unique!
 // uses the Actions current internal state as a starting point.
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 Correctly, using __clone()__!:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create our Sprites
 auto heroSprite = Sprite::create("herosprite.png");
 auto enemySprite = Sprite::create("enemysprite.png");
@@ -841,18 +508,7 @@ heroSprite->runAction(moveBy);
 
 // run it on our enemy
 enemySprite->runAction(moveBy->clone()); // correct! This will be unique
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 ### Reverse
 __Reverse__ is also exactly like it sounds. If you run a series of actions, you
@@ -863,45 +519,16 @@ However, it is not just simply running the `Action` in reverse order. Calling
 
 Using the `Spawn` example above, reversing is simple.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // reverse a sequence, spawn or action
 mySprite->runAction(mySpawn->reverse());
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 Most `Action` and `Sequence` objects are reversible!
 
 It's easy to use, but let's make sure we see what is happening. Given:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create a Sprite
 auto mySprite = Sprite::create("mysprite.png");
 mySprite->setPosition(50, 56);
@@ -922,18 +549,7 @@ newSprite2->runAction(sequence);
 
 // reverse it
 newSprite2->runAction(sequence->reverse());
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-
-```
-
-  </div>
+{%- endcodetabs %}
 
 What is really happening? If we lay out the steps as a list it might be helpful:
 
