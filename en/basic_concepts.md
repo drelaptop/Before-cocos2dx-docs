@@ -4,8 +4,9 @@
     <li><a href="#" id="tab-js">中文</a></li>
   </ul>
 </div>
-  <span class="tab-cpp tab_content" markdown="1">
-  # Basic Cocos2d-x Concepts
+  <span class="tab-cpp tab_content">
+
+# Basic Cocos2d-x Concepts
 
 This chapter assumes you've just gotten started with Cocos2d-x, and are ready to
 start working on the game of your dreams. Don't worry, it will be fun!
@@ -52,7 +53,7 @@ components used to build it:
 ![](basic_concepts-img/2n_annotated_scaled.png "")
 
 You can see a menu, some sprites and labels, which all have an equivalent in
-Cocos2d-x.  Take a look at a few of your own game design documents,and see what
+Cocos2d-x.  Take a look at a few of your own game design documents, and see what
 components you have, you'll probably have a few that match up.
 
 ## Director
@@ -137,7 +138,7 @@ the __z-order__ to layout the `Scene`:
 ![](basic_concepts-img/layers.png "")
 
 The `Scene` on the left is actually made up of multiple `Node` objects
-that are given a different __z-order__ to make them "stack" on top of each other.
+that are given a different __z-order__ to make them *stack* on top of each other.
 
 In Cocos2d-x, you build the __scene graph__ using the *addChild()* API call:
 
@@ -502,8 +503,8 @@ overnight. These take practice and understanding. Remember that the [forums](htt
 
   </span>
 
-  <span class="tab-js tab_content" markdown="1">
+  <span class="tab-js tab_content">
 
-中文
+## 中文
 
   </span>
