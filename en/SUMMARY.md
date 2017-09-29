@@ -97,15 +97,17 @@
 - SQLite
 
 ## Installations
-- [Prerequisites]()
-- [Android - command-line]()
-- [Android - Visual Studio]()
-- [Android - Studio]()
-- [Android - Eclipse]()
-- [IOS]()
-- [Mac OS X]()
-- [Linux]()
-- [Windows]()
+- [Prerequisites](./installations/A.md)
+- [Android - command-line](./installations/Android-terminal.md)
+- [Android - Visual Studio](./installations/Android-VisualStudio.md)
+- [Android - Studio](./installations/Android-Studio.md)
+- [Android - Eclipse](./installations/Android-Eclipse.md)
+- [IOS](./installations/iOS.md)
+- [Mac OS X](./installations/OSX.md)
+- [Linux](./installations/Linux.md)
+- [Tizen](./installations/Tizen.md) __**DEPRECATED**__
+- [Windows](./installations/Windows.md)
+- [Windows Phone](./installations/Windows-Phone.md) __**DEPRECATED**__
 
 ## Tools
 - [Cocos Command-Line tool]()
