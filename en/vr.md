@@ -69,29 +69,29 @@ of the [__Cocos Command-Line Tool__](../editors_and_tools/cocosCLTool/) to add _
 You always need to __import__ the `vrsdkbase`. This step takes care of modifying your projects
 to support __VR__.
 
-```sh
+{% codetabs name="shell", type="sh" -%}
 $ cocos package import -v -b vrsdkbase --anysdk
-```
+{%- endcodetabs %}
 
 Notice in `AppDelegate.cpp` code has been added to enable __VR__:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // VR_PLATFORM_SOURCES_BEGIN
 auto vrImpl = new VRGenericRenderer;
 glview->setVR(vrImpl);
 // VR_PLATFORM_SOURCES_END
-```
+{%- endcodetabs %}
 
 Import the __VR SDK__ that you need. Currently, __Gear__, __Deepoon__, __GVR__ and __Oculus__
 are supported.
 
-```sh
+{% codetabs name="shell", type="sh" -%}
 $ cocos package import -v -b SDK_NAME --anysdk
-```
+{%- endcodetabs %}
 
 Examples:
 
-```sh
+{% codetabs name="shell", type="sh" -%}
 # add the GearVR package
 $ cocos package import -v -b gearvr --anysdk
 
@@ -103,7 +103,7 @@ $ cocos package import -v -b gvr --anysdk
 
 # add the Oculus VR package
 $ cocos package import -v -b oculus --anysdk
-```
+{%- endcodetabs %}
 
 ## Compiling and Running with VR
 
@@ -117,7 +117,7 @@ you need to perform a few additional steps. Running __switchVRPlatform.py__ from
 your projects root directory will take care of everything. Here is an example for
 installing __GearVR__ in C++, JavaScript and Lua:
 
-```sh
+{% codetabs name="shell", type="sh" -%}
 ## in C++
 
 # first, install vrsdkbase
@@ -128,9 +128,9 @@ $ cocos package import -v -b gearvr --anysdk
 
 # third, switch to using GearVR
 $ python vrsdks/switchVRPlatform.py -p gearvr-sdk
-```
+{%- endcodetabs %}
 
-```sh
+{% codetabs name="shell", type="sh" -%}
 
 ## in JavaScript and Lua
 
@@ -142,7 +142,8 @@ $ cocos package import -v -b gearvr --anysdk
 
 # third, switch to using GearVR
 $ python frameworks/runtime-src/vrsdks/switchVRPlatform.py -p gearvr-sdk
-```
+
+{%- endcodetabs %}
 
 **Attention:** you should using `$ python vrsdks/switchVRPlatform.py -h` to check the name of SDK, here is `gearvr-sdk`.
 
@@ -155,14 +156,15 @@ upon your __Runtime Platform__. Please refer to the table at the start of this d
 Running __GearVR__, __Deepoon VR__ or __Google VR__ on __Android__ requires a change
 in compile flags. Example:
 
-```sh
+{% codetabs name="C++", type="cpp" -%}
 # from a command-line
 $ cocos run -p android --app-abi armeabi-v7a
 
 # using Android Studio
 $ cocos run -p android --android-studio --app-abi armeabi-v7a
-```
-**Attention:** All mobile VRSDK(GearVR/Deepoon VR/GVR) only support armeabi-v7a architecture. GVR only support Android Studio. So it can only use the second command to compilation. 
+{%- endcodetabs %}
+
+**Attention:** All mobile VRSDK(GearVR/Deepoon VR/GVR) only support armeabi-v7a architecture. GVR only support Android Studio. So it can only use the second command to compilation.
 
 If __GearVR__ or __Deepoon VR__ crashes at runtime, please check to ensure you have an
 [Oculus signature file](https://developer.oculus.com/documentation/mobilesdk/latest/concepts/mobile-submission-sig-file/) in **assets** folder.
