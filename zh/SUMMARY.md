@@ -3,13 +3,14 @@
 ## 引擎介绍
 
 - [环境搭建](./installation/index.md)
-    - [Android]()
-        - [Android Studio](./installation/android-studio-intallation/installation.md)
-        - [Eclipse]()
+    - [Android - Visual Studio]()
+    - [Android - Android Studio](./installation/android-studio-intallation/installation.md)
+    - [Android - Eclipse]()
+    - [Android - command-line]()
     - [IOS]()
-        - [XCode]()
+    - [macOS]()
+    - [Linux]()
     - [Windows]()
-        - [Visual Studio]()
 
 ## 基本概念
 
