@@ -272,7 +272,7 @@ _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(),
 
 _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(),
  sprite3);
-{%- endcodetabs %
+{%- endcodetabs %}
 
 ## Removing events from the dispatcher
 An added listener can be removed with following method:
