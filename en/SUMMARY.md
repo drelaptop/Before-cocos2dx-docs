@@ -105,9 +105,7 @@
 - [IOS]()
 - [Mac OS X]()
 - [Linux]()
-- [Tizen]()
 - [Windows]()
-- [Windows Phone]()
 
 ## Tools
 - [Cocos Command-Line tool]()
