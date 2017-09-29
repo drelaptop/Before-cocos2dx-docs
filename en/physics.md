@@ -14,7 +14,7 @@ of using a `Node` objects __update()__ function, `Rect` objects and a combinatio
 of the __containsPoint()__ or __intersectsRect()__ functions might be enough for
 you? Example:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 void update(float dt)
 {
   auto p = touch->getLocation();
@@ -25,7 +25,7 @@ void update(float dt)
       // do something, intersection
   }
 }
-```
+{%- endcodetabs %}
 
 This mechanism works for __very simple__ needs, but doesn't scale. What if you had
 100 `Sprite` objects all continuously updating to check for intersections with
@@ -35,7 +35,7 @@ for us in a scalable and CPU friendly way. Even though this might look foreign,
 let's take a look at a simple example and then nut and bolt the example,
 terminology and best practice together.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create a static PhysicsBody
 auto physicsBody = PhysicsBody::createBox(Size(65.0f , 81.0f ), PhysicsMaterial(0.1f, 1.0f, 0.0f));
 physicsBody->setDynamic(false);
@@ -51,7 +51,7 @@ sprite->addComponent(physicsBody);
 auto contactListener = EventListenerPhysicsContact::create();
 contactListener->onContactBegin = CC_CALLBACK_1(onContactBegin, this);
 _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
-```
+{%- endcodetabs %}
 
 Even though this example is simple, it looks complicated and scary. It really
 isn't if we look closely. Here are the steps that are happening:
@@ -155,9 +155,9 @@ job.
 
 You can create a `Scene` that contains a `PhysicsWorld` using:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto scene = Scene::createWithPhysics();
-```
+{%- endcodetabs %}
 
 Every `PhysicsWorld` has properties associated with it:
  >-gravity: Global gravity applied to the world. Defaults to Vec2(0.0f, -98.0f).
@@ -190,7 +190,7 @@ __setPhysicsBody()__ to associate a `PhysicsBody` to a `Node` object.
 
 Lets create a static and 5 dynamic `PhysicsBody` objects that are a box shape:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto physicsBody = PhysicsBody::createBox(Size(65.0f, 81.0f),
 						PhysicsMaterial(0.1f, 1.0f, 0.0f));
 physicsBody->setDynamic(false);
@@ -224,7 +224,7 @@ for (int i = 0; i < 5; ++i)
 
     addChild(sprite);
 }
-```
+{%- endcodetabs %}
 
 The result is a stationary `PhysicsBody` with 5 additional `PhysicsBody` objects
 colliding around it.
@@ -245,7 +245,7 @@ There are 32 supported collision categories. For each shape you can specify whic
 category it belongs to. You can also specify what other categories this shape can
 collide with. This is done with masking bits. For example:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto sprite1 = addSpriteAtPosition(Vec2(s_centre.x - 150,s_centre.y));
 sprite1->getPhysicsBody()->setCategoryBitmask(0x02);    // 0010
 sprite1->getPhysicsBody()->setCollisionBitmask(0x01);   // 0001
@@ -271,7 +271,7 @@ if ((shapeA->getCategoryBitmask() & shapeB->getCollisionBitmask()) == 0
    // shapes can't collide
    ret = false;
 }
-```
+{%- endcodetabs %}
 
 ![](physics-img/CollisionFiltering.gif )
 
@@ -332,14 +332,14 @@ created automatically. There are a few terms associated with contacts.
 
 You can get the `PhysicsShape` from a __contact__. From those you can get the bodies.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 bool onContactBegin(PhysicsContact& contact)
 {
     auto bodyA = contact.getShapeA()->getBody();
     auto bodyB = contact.getShapeB()->getBody();
     return true;
 }
-```
+{%- endcodetabs %}
 
 You can get access to __contacts__ by implementing a __contact listener__. The __contact
 listener__ supports several events: __begin__, __pre-solve__, __post-solve__ and __separate__.
@@ -369,7 +369,7 @@ won't be received by default, even if you create the relative __EventListener__.
 
 For example:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 bool init()
 {
     //create a static PhysicsBody
@@ -418,7 +418,7 @@ bool onContactBegin(PhysicsContact& contact)
     //bodies can collide
     return true;
 }
-```
+{%- endcodetabs %}
 
 ![](physics-img/CollisionProcessing.gif)
 
@@ -442,7 +442,7 @@ attention. You have essentially performed a __ray cast__ here. You scanned until
 you found something interesting to make you stop scanning. You can __ray cast__ at
 a shape to get the point of first intersection. For example:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 void tick(float dt)
 {
     Vec2 d(300 * cosf(_angle), 300 * sinf(_angle));
@@ -476,7 +476,7 @@ void tick(float dt)
 
     _angle += 1.5f * (float)M_PI / 180.0f;
 }
-```
+{%- endcodetabs %}
 
 ![](physics-img/RayTest.gif)
 
@@ -484,7 +484,7 @@ void tick(float dt)
 __Rect queries__ provide a fast way to check roughly which shapes are in an area.
 It is pretty easy to implement:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto func = [](PhysicsWorld& world, PhysicsShape& shape, void* userData)->bool
 {
     //Return true from the callback to continue rect queries
@@ -492,7 +492,7 @@ auto func = [](PhysicsWorld& world, PhysicsShape& shape, void* userData)->bool
 }
 
 scene->getPhysicsWorld()->queryRect(func, Rect(0,0,200,200), nullptr);
-```
+{%- endcodetabs %}
 
 A few examples of using a __rect query__ while doing a *logo smash*:
 
@@ -503,11 +503,12 @@ A few examples of using a __rect query__ while doing a *logo smash*:
 #### Debugging Physics Body and Shapes
 If you ever wish to have red boxes drawn around your __physics bodies__ to aid
 in debugging, simple add these 2 lines to your core, where it makes sense to you.
-Perhaps `AppDelegate` is a good place. 
-```cpp
+Perhaps `AppDelegate` is a good place.
+
+{% codetabs name="C++", type="cpp" -%}
 Director::getInstance()->getRunningScene()->getPhysics3DWorld()->setDebugDrawEnable(true);
 Director::getInstance()->getRunningScene()->setPhysics3DDebugCamera(cameraObjecct);
-```
+{%- endcodetabs %}
 
 #### Disabling Physics
 Using the built-in __physics engine__ is a good idea. It is solid and advanced.

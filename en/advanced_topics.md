@@ -106,7 +106,7 @@ __request__ and receiving the data on a __callback__.
 
 Working with an `HTTPRequest` is quite simple:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 HttpRequest* request = new (std :: nothrow) HttpRequest();
 request->setUrl("http://just-make-this-request-failed.com");
 request->setRequestType(HttpRequest::Type::GET);
@@ -115,13 +115,13 @@ request->setResponseCallback(CC_CALLBACK_2 (HttpClientTest::onHttpRequestComplet
 HttpClient::getInstance()->sendImmediate(request);
 
 request->release();
-```
+{%- endcodetabs %}
 
 Notice that we specified a __setResponseCallback()__ method for when a response is
 received. By doing this we can look at the data returned and use it how we might
 need to. Again, this process is simple and we can do it with ease:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 void HttpClientTest::onHttpRequestCompleted(HttpClient* sender, HttpResponse* response)
 {
   if (!response)
@@ -137,7 +137,7 @@ void HttpClientTest::onHttpRequestCompleted(HttpClient* sender, HttpResponse* re
     log ("% c", (* buffer) [i]);
   }
 }
-```
+{%- endcodetabs %}
 
 #Shaders and Materials
 
@@ -167,10 +167,10 @@ for 3d objects, and so on.
 
 Users can change the predefined shaders from any Cocos2d-x `Node` by calling:
 
-```c++
+{% codetabs name="C++", type="cpp" -%}
 sprite->setGLProgramState(programState);
 sprite3d->setGLProgramState(programState);
-```
+{%- endcodetabs %}
 
 The `GLProgramState` object contains two important things:
 
@@ -182,21 +182,22 @@ refer to the [OpenGL Shading Language Specification](https://www.khronos.org/fil
 
 Setting uniforms to a `GLProgramState` is as easy as this:
 
-```c++
+{% codetabs name="C++", type="cpp" -%}
 glProgramState->setUniformFloat("u_progress", 0.9);
 glProgramState->setUniformVec2("u_position", Vec2(x,y));
 glProgramState->setUniformMat4("u_transform", matrix);
-```
+{%- endcodetabs %}
 
 You can even set callbacks as a uniform value:
-```c++
+
+{% codetabs name="C++", type="cpp" -%}
 glProgramState->setUniformCallback("u_progress", [](GLProgram* glProgram, Uniform* uniform)
-  {
-      float random = CCRANDOM_0_1();
-      glProgram->setUniformLocationWith1f(uniform->location, random);
-  }
+{
+    float random = CCRANDOM_0_1();
+    glProgram->setUniformLocationWith1f(uniform->location, random);
+}
 );
-```
+{%- endcodetabs %}
 
 And although it is possible to set `GLProgramState` objects manually, an easier
 way to do it is by using `Material` objects.
@@ -234,7 +235,7 @@ with `Material` you can have more than one texture, and much more features like 
 
 As an example, this is how a material file looks like:
 
-```javascript
+{% codetabs name="JavaScript", type="js" -%}
 // A "Material" file can contain one or more materials
 material spaceship
 {
@@ -282,20 +283,20 @@ material spaceship
 		}
 	}
 }
-```
+{%- endcodetabs %}
 
 And this is how to set a `Material` to a `Sprite3D`:
 
-```c++
+{% codetabs name="C++", type="cpp" -%}
 Material* material = Material::createWithFilename("Materials/3d_effects.material");
 sprite3d->setMaterial(material);
-```
+{%- endcodetabs %}
 
 And if you want to change between different `Technique`s, you have to do:
 
-```c++
+{% codetabs name="C++", type="cpp" -%}
 material->setTechnique("normal");
-```
+{%- endcodetabs %}
 
 ##Techniques
 Since you can bind only one `Material` per `Sprite3D`, an additional feature
@@ -318,7 +319,6 @@ And each `Pass` has two main objects:
 - `GLProgramState`: contains the shader (`GLProgram`) that is going to be used, including
     its uniforms.
 
-
 ##Material file format in detail
 Material uses a file format  optimized to create Material files.
 This file format is very similar to other existing Material file formats, like
@@ -334,12 +334,12 @@ __parent_material_id__
 - Vertex and fragment shader file extensions do not matter. The convention in
 Cocos2d-x is to use __.vert__ and __frag__
 
-```c++
+{% codetabs name="C++", type="cpp" -%}
 // When the .material file contains one material
 sprite3D->setMaterial("Materials/box.material");
 // When the .material file contains multiple materials
 sprite3D->setMaterial("Materials/circle.material#wood");
-```
+{%- endcodetabs %}
 
 <table>
  <tr>

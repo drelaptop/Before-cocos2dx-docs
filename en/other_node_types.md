@@ -12,29 +12,29 @@ __TileMaps__ are stored in an XML-based map format called `TML`. `TMX` was origi
 designed for tile-based maps but is also suitable for more generic game levels
 due to its support for various object types. `TMX` objects are easy to create:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // reading in a tiled map.
 auto map = TMXTiledMap::create("TileMap.tmx");
 addChild(map, 0, 99); // with a tag of '99'
-```
+{%- endcodetabs %}
 
 Tile-based maps can have many layers, determined by a
 __z-order__. You can access a specific layer by it's name:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // how to get a specific layer
 auto map = TMXTiledMap::create("TileMap.tmx");
 auto layer = map->getLayer("Layer0");
 auto tile = layer->getTileAt(Vec2(1, 63));
-```
+{%- endcodetabs %}
 
 Each tile has a unique position and id. This makes it very easy to cherry pick
 specific tiles. You can access any tile by its id:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // to obtain a specific tiles id
 unsigned int gid = layer->getTileGIDAt(Vec2(0, 63));
-```
+{%- endcodetabs %}
 
 Example tiled-map layouts:
 
@@ -71,10 +71,10 @@ These tools usually export a `.plist` file that you can read in with Cocos2d-x t
 use your creation inside your game. Just like with all of the other classes we
 have worked with so far we use the `create()` method:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create by plist file
 auto particleSystem = ParticleSystem::create("SpinningPeas.plist");
-```
+{%- endcodetabs %}
 
 ### Built-In Particle Effects
 Are you ready to add _particle effects_ to your game? We hope so! Are you not yet
@@ -106,11 +106,11 @@ at this list:
 
 Using `ParticleFireworks` as an example, you can use the built-in effects easily:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto emitter = ParticleFireworks::create();
 
 addChild(emitter, 10);
-```
+{%- endcodetabs %}
 
 The result is a _particle effect_ that looks something like:
 
@@ -120,7 +120,7 @@ But what do you do if your __particle effect__ isn't quite the way you want?
 That's right, you can manually manipulate it! Let's take the same fireworks example
 above and manipulate it even further by manually changing its properties:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto emitter = ParticleFireworks::create();
 
 // set the duration
@@ -136,7 +136,7 @@ emitter->setEndRadius(ParticleSystem::START_RADIUS_EQUAL_TO_END_RADIUS);
 emitter->setEndRadiusVar(0);    // not used when start == end
 
 addChild(emitter, 10);
-```
+{%- endcodetabs %}
 
 <!--### Creating Particles
 Building your own _particle effects_ is a rather complex process of setting
@@ -262,14 +262,14 @@ require the use of multiple nodes to function. A `ParallaxNode` cannot function
 by itself. You need at least 2 other `Node` objects to complete a `ParallaxNode`.
 As usual, in true Cocos2d-x fashion, a `ParallaxNode` is easy to create:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create ParallaxNode
 auto paraNode = ParallaxNode::create();
-```
+{%- endcodetabs %}
 
 Since you need multiple `Node` objects, they too are easily added:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create ParallaxNode
 auto paraNode = ParallaxNode::create();
 
@@ -281,7 +281,7 @@ paraNode->addChild(middle_layer, 1, Vec2(2.2f,1.0f), Vec2(0,-200) );
 
 // top image is moved at a ratio of 3.0x, 2.5y
 paraNode->addChild(top layer, 2, Vec2(3.0f,2.5f), Vec2(200,800) );
-```
+{%- endcodetabs %}
 
 OK, looks and feels familiar, right? Notice a few items! Each `Node` object that
 was added is given a unique __z-order__ so that they stack on top of each other.

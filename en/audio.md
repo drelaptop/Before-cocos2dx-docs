@@ -15,7 +15,7 @@ The `SimpleAudioEngine` API is very easy to use.
 Play an audio file for use as background music. This can be repeated
 continuously.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto audio = SimpleAudioEngine::getInstance();
 
 // set the background music and continuously play it.
@@ -23,24 +23,24 @@ audio->playBackgroundMusic("mymusic.mp3", true);
 
 // set the background music and play it just once.
 audio->playBackgroundMusic("mymusic.mp3", false);
-```
+{%- endcodetabs %}
 
 ###Play a sound effect.
 Play a sound effect.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto audio = SimpleAudioEngine::getInstance();
 
 // play a sound effect, just once.
 audio->playEffect("myEffect.mp3", false, 1.0f, 1.0f, 1.0f);
-```
+{%- endcodetabs %}
 
 ###Pausing, stopping, resuming music and sound effects
 After you start to play music and sound effects you might need to pause,
 stop or resume after certain operations. This can be done easily.
 
 ####Pause
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto audio = SimpleAudioEngine::getInstance();
 
 // pause background music.
@@ -51,10 +51,10 @@ audio->pauseEffect();
 
 // pause all sound effects.
 audio->pauseAllEffects();
-```
+{%- endcodetabs %}
 
 ####Stop
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto audio = SimpleAudioEngine::getInstance();
 
 // stop background music.
@@ -65,10 +65,10 @@ audio->stopEffect();
 
 // stops all running sound effects.
 audio->stopAllEffects();
-```
+{%- endcodetabs %}
 
 ####Resume
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto audio = SimpleAudioEngine::getInstance();
 
 // resume background music.
@@ -79,7 +79,7 @@ audio->resumeEffect();
 
 // resume all sound effects.
 audio->resumeAllEffects();
-```
+{%- endcodetabs %}
 
 ##Advanced audio functionality
 
@@ -93,6 +93,7 @@ help you here.
 
 In `AppDelegate.cpp`, notice the following methods:
 
+{% codetabs name="C++", type="cpp" -%}
 ```cpp
 // This function will be called when the app is inactive. When comes a phone call,
 // it's be invoked too
@@ -110,7 +111,7 @@ void AppDelegate::applicationWillEnterForeground() {
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
-```
+{%- endcodetabs %}
 
 Notice the commented out lines for `SimpleAudioEngine`? Make sure to uncomment these
 lines out if you are using audio for background sounds and sound effects.
@@ -119,7 +120,7 @@ lines out if you are using audio for background sounds and sound effects.
 When your game starts you might want to pre-load the music and effects so they
 are ready when you need them.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto audio = SimpleAudioEngine::getInstance();
 
 // pre-loading background music and effects. You could pre-load
@@ -135,14 +136,14 @@ audio->preloadEffect("myEffect2.mp3");
 // you wont use it anymore in your game. unload it to free up
 // resources.
 audio->unloadEffect("myEffect1.mp3");
-```
+{%- endcodetabs %}
 
 ###Volume
 You can increase and decrease the volume of your sounds and music programmatically.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto audio = SimpleAudioEngine::getInstance();
 
 // setting the volume specifying value as a float
 audio->setEffectsVolume(5.0f);
-```
+{%- endcodetabs %}

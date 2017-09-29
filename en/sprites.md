@@ -13,29 +13,11 @@ talk about each one.
 ### Creating a Sprite
 A `Sprite` can be created by specifying an image file to use.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
-  auto mySprite = Sprite::create("mysprite.png");
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
-  var mySprite = new cc.Sprite(res.mySprite_png);
-```
-
-  </div>
+{% codetabs name="C++", type="cpp" -%}
+auto mySprite = Sprite::create("mysprite.png");
+{%- language name="JavaScript", type="js" -%}
+var mySprite = new cc.Sprite(res.mySprite_png);
+{%- endcodetabs %}
 
 ![](sprites-img/i1.png "")
 
@@ -52,29 +34,11 @@ image file, you can do it by specifying a `Rect`.
 
 `Rect` has 4 values: __origin x__, __origin y__, __width__ and __height__.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png", Rect(0,0,40,40));
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mySprite_png, cc.rect(0,0,40,40));
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i4.png "")
 
@@ -88,33 +52,16 @@ and height of the image file you specify. Take a look at the example below. If
 we use an image with dimensions 200 x 200 the following 2 statements would have
 the same result.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
 
 auto mySprite = Sprite::create("mysprite.png", Rect(0,0,200,200));
-```
+{%- language name="JavaScript", type="js" -%}
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
 var mySprite = new cc.Sprite(res.mySprite_png);
 
 var mySprite = new cc.Sprite(res.mySprite_png, cc.rect(0,0,200,200));
-```
-
-  </div>
+{%- endcodetabs %}
 
 ## Creating a Sprite from a Sprite Sheet
 A __sprite sheet__ is a way to combine sprites into a single file. Using a
@@ -145,37 +92,19 @@ Let's tie this all together!
 ### Loading a Sprite Sheet
 Load your __sprite sheet__ into the `SpriteFrameCache`, probably in __AppDelegate__:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // load the Sprite Sheet
 auto spritecache = SpriteFrameCache::getInstance();
 
 // the .plist file can be generated with any of the tools mentioned below
 spritecache->addSpriteFramesWithFile("sprites.plist");
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // load the Sprite Sheet
 var spritecache = cc.SpriteFrameCache;
 
 // the .plist file can be generated with any of the tools mentioned below
 spritecache.addSpriteFramesWithFile(res.sprites_plist);
-```
-
-  </div>
+{%- endcodetabs %}
 
 Now that we have a __sprite sheet__ loaded into `SpriteFrameCache` we can create
 `Sprite` objects by utilizing it.
@@ -183,33 +112,15 @@ Now that we have a __sprite sheet__ loaded into `SpriteFrameCache` we can create
 ### Creating a Sprite from SpriteFrameCache
 This creates a `Sprite` by pulling it from the `SpriteFrameCache`.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // Our .plist file has names for each of the sprites in it.  We'll grab
 // the sprite named, "mysprite" from the sprite sheet:
 auto mysprite = Sprite::createWithSpriteFrameName("mysprite.png");
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // Our .plist file has names for each of the sprites in it.  We'll grab
 // the sprite named, "Blue_Front1" from the sprite sheet:
 var mysprite = cc.Sprite.createWithSpriteFrameName(res.mySprite_png);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i3.png "")
 
@@ -217,35 +128,19 @@ var mysprite = cc.Sprite.createWithSpriteFrameName(res.mySprite_png);
 Another way to create the same `Sprite` is by fetching the `SpriteFrame` from the
 `SpriteFrameCache`, and then creating the `Sprite` with the `SpriteFrame`. Example:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // this is equivalent to the previous example,
 // but it is created by retrieving the SpriteFrame from the cache.
 auto newspriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName("Blue_Front1.png");
 auto newSprite = Sprite::createWithSpriteFrame(newspriteFrame);
-```
+{%- language name="JavaScript", type="js" -%}
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
 // this is equivalent to the previous example,
 // but it is created by retrieving the SpriteFrame from the cache.
 var newspriteFrame = cc.SpriteFrameCache.getSpriteFrameByName(res.sprites_plist);
 var newSprite = cc.Sprite.createWithSpriteFrame(newspriteFrame);
-```
 
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i3.png "")
 
@@ -268,29 +163,11 @@ has that can be manipulated.
 
 Given:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("mysprite.png");
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new Sprite(res.mysprite_png);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i1.png "")
 
@@ -306,16 +183,7 @@ is __(0.5, 0.5)__.
 
 Setting the __anchor point__ is easy:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // DEFAULT anchor point for all Sprites
 mySprite->setAnchorPoint(0.5, 0.5);
 
@@ -330,14 +198,7 @@ mySprite->setAnchorPoint(1, 0);
 
 // top right
 mySprite->setAnchorPoint(1, 1);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // DEFAULT anchor point for all Sprites
 mySprite.setAnchorPoint(cc._p(0.5, 0.5));
 
@@ -352,9 +213,7 @@ mySprite.setAnchorPoint(cc._p(1, 0));
 
 // top right
 mySprite.setAnchorPoint(cc._p(1, 1));
-```
-
-  </div>
+{%- endcodetabs %}
 
 To represent this visually:
 
@@ -377,46 +236,19 @@ value. We did not use a `setPosition()` statement to achieve this:
 There are more ways to set position than just __anchor point__. `Sprite` objects
 can also be set using the `setPosition()` method.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // position a sprite to a specific position of x = 100, y = 200.
 mySprite->setPosition(Vec2(100, 200));
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 mySprite.setPosition(cc._p(100, 200));
-```
-
-  </div>
+{%- endcodetabs %}
 
 #### Rotation
 Changes the __sprite's__ rotation, by a positive or negative number of degrees.
 A positive value rotates the `Sprite` object clockwise, while a negative value
 rotates the `Sprite` object counter-clockwise. The default value is __0__.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // rotate sprite by +20 degrees
 mySprite->setRotation(20.0f);
 
@@ -428,14 +260,7 @@ mySprite->setRotation(60.0f);
 
 // rotate sprite by -60 degrees
 mySprite->setRotation(-60.0f);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // rotate sprite by +20 degrees
 mySprite.setRotation(cc._p(20.0));
 
@@ -447,9 +272,7 @@ mySprite.setRotation(cc._p(60.0));
 
 // rotate sprite by -60 degrees
 mySprite.setRotation(cc._p(-60.0));
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i8.png "")
 
@@ -457,16 +280,7 @@ mySprite.setRotation(cc._p(-60.0));
 Changes the __sprite's__ scale, either by x, y or uniformly for both x and y.
 The default value is 1.0 for both x and y.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // increases X and Y size by 2.0 uniformly
 mySprite->setScale(2.0);
 
@@ -475,14 +289,7 @@ mySprite->setScaleX(2.0);
 
 // increases just Y scale by 2.0
 mySprite->setScaleY(2.0);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // increases X and Y size by 2.0 uniformly
 mySprite.setScale(cc._p(2.0));
 
@@ -491,9 +298,7 @@ mySprite.setScaleX(cc._p(2.0));
 
 // increases just Y scale by 2.0
 mySprite.setScaleY(cc._p(2.0));
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i5.png "")
 
@@ -501,37 +306,19 @@ mySprite.setScaleY(cc._p(2.0));
 Changes the __sprite's__ skew, either by x, y or uniformly for both x and y.
 The default value is 0,0 for both x and y.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // adjusts the X skew by 20.0
 mySprite->setSkewX(20.0f);
 
 // adjusts the Y skew by 20.0
 mySprite->setSkewY(20.0f);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // adjusts the X skew by 20.0
 mySprite.setSkewX(cc._p(20.0));
 
 // adjusts the Y skew by 20.0
 mySprite.setSkewY(cc._p(20.0));
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i7.png "")
 
@@ -548,37 +335,19 @@ value from 0 - 255. Cocos2d-x also provides pre-defined colors that you can pick
 from. Using these will be a bit faster since they are pre-defined. A few examples:
 `Color3B::White` and `Color3B::Red`.
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // set the color by passing in a pre-defined Color3B object.
 mySprite->setColor(Color3B::WHITE);
 
 // Set the color by passing in a Color3B object.
 mySprite->setColor(Color3B(255, 255, 255)); // Same as Color3B::WHITE
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // set the color by passing in a pre-defined Color3B object.
 mySprite.setColor(cc.color.WHITE);
 
 // Set the color by passing in a Color3B object.
 mySprite.setColor(cc.color(255, 255, 255)); // Same as Color3B::WHITE
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i10.png "")
 
@@ -588,33 +357,15 @@ transparent at all. This property expects a value from 0 to 255, where 255 means
 fully opaque and 0 means fully transparent. Think: __zero opacity means invisible__,
 and you'll always understand how this works. The default value is 255 (fully opaque).
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // Set the opacity to 30, which makes this sprite 11.7% opaque.
 // (30 divided by 256 equals 0.1171875...)
 mySprite->setOpacity(30);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // Set the opacity to 30, which makes this sprite 11.7% opaque.
 // (30 divided by 256 equals 0.1171875...)
 mySprite.setOpacity(30);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ![](sprites-img/i11.png "")
 
@@ -666,34 +417,16 @@ There are functions for each step in the process, from tracing all the points,
 to triangulation. The result, can be then passed to a `Sprite` objects __create__
 function to create a `PolygonSprite`. Example:
 
-  <div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // Generate polygon info automatically.
 auto pinfo = AutoPolygon::generatePolygon("filename.png");
 
 // Create a sprite with polygon info.
 auto sprite = Sprite::create(pinfo);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // Generate polygon info automatically.
 var pinfo = cc.autopolygon.generatePolygon(res.mysprite_png);
 
 // Create a sprite with polygon info.
 var sprite = new cc.Sprite(pinfo);
-```
-
-  </div>
+{%- endcodetabs %}

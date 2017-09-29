@@ -12,9 +12,9 @@ and you can even have __scene transitions__ with cool effects.
 ## Creating a Scene
 It is very easy to create a `Scene`
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myScene = Scene::create();
-```
+{%- endcodetabs %}
 
 ## Remember the Scene Graph?
 In __Chapter 2__  of this guide we learned about a __scene graph__ and how it affects
@@ -28,7 +28,7 @@ corner of the screen/display. When you start positioning your game elements this
 is where you should start your calculations from. Let's create a simple `Scene`
 and add a few elements to it:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto dirs = Director::getInstance();
 Size visibleSize = dirs->getVisibleSize();
 
@@ -43,7 +43,7 @@ auto sprite1 = Sprite::create("mysprite.png");
 sprite1->setPosition(Vec2(100, 100));
 
 myScene->addChild(sprite1);
-```
+{%- endcodetabs %}
 
 When we run this code we shall see a simple `Scene` that contains a `Label` and
 a `Sprite`. It doesn't do much but it's a start.
@@ -57,41 +57,41 @@ of ways to do __scene transitions__.
 There are many ways to transition through your __scenes__. Each has specific
 functionality. Let's go through them. Given:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myScene = Scene::create();
-```
+{%- endcodetabs %}
 
 __runWithScene()__ - use this for the first scene only. This is the way to start
 your games first `Scene`.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 Director::getInstance()->runWithScene(myScene);
-```
+{%- endcodetabs %}
 
 __replaceScene()__ - replace a scene outright.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 Director::getInstance()->replaceScene(myScene);
-```
+{%- endcodetabs %}
 
 __pushScene()__ - suspends the execution of the running scene, pushing it on the
 stack of suspended scenes. Only call this if there is a running scene.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 Director::getInstance()->pushScene(myScene);
-```
+{%- endcodetabs %}
 
 __popScene()__ - This scene will replace the running one. The running scene will
 be deleted. Only call this if there is a running scene.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 Director::getInstance()->popScene(myScene);
-```
+{%- endcodetabs %}
 
 ### Transition Scenes with effects
 You can add visual effects to your `Scene` transitions
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myScene = Scene::create();
 
 // Transition Fade
@@ -102,7 +102,7 @@ Director::getInstance()->replaceScene(TransitionFlipX::create(2, myScene));
 
 // Transition Slide In
 Director::getInstance()->replaceScene(TransitionSlideInT::create(1, myScene) );
-```
+{%- endcodetabs %}
 
 <!---### Converting between coordinate systems
 

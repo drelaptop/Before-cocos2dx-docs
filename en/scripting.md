@@ -14,15 +14,15 @@ and these bindings are only available in their respective project types.
 
 Example with Lua:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create a Sprite and add a LUA component
 auto player = Sprite::create("player.png");
 
 auto luaComponent = ComponentLua::create("player.lua");
 player->addComponent(luaComponent);
-```
+{%- endcodetabs %}
 
-```lua
+{% codetabs name="Lua", type="lua" -%}
 -- player.lua
 
 local player = {
@@ -41,18 +41,21 @@ local player = {
 
 -- it is needed to return player to let c++ nodes know it
 return player
-```
+{%- endcodetabs %}
+
 
 Example with JavaScript:
-```cpp
+
+{% codetabs name="C++", type="cpp" -%}
 // create a Sprite and add a LUA component
 auto player = Sprite::create("player.png");
 
 auto jsComponent = ComponentJS::create("player.js");
 player->addComponent(jsComponent);
-```
+{%- endcodetabs %}
 
-```javascript
+
+{% codetabs name="JavaScript", type="js" -%}
 // player.js
 Player = cc.ComponentJS.extend({
     generateProjectile: function (x, y) {
@@ -107,8 +110,7 @@ Player = cc.ComponentJS.extend({
         }, owner);
     }
 });
-```
-
+{%- endcodetabs %}
 
 One difference to keep in mind, between JavaScript and LUA components, is you
 should return the __object__ in LUA component, in JavaScript, you only have to

@@ -1,3 +1,11 @@
+<div class="langs">
+  <ul>
+    <li><a href="#" id="tab-cpp">English</a></li>
+    <li><a href="#" id="tab-js">中文</a></li>
+  </ul>
+</div>
+  <span class="tab-cpp tab_content">
+
 # Basic Cocos2d-x Concepts
 
 This chapter assumes you've just gotten started with Cocos2d-x, and are ready to
@@ -45,7 +53,7 @@ components used to build it:
 ![](basic_concepts-img/2n_annotated_scaled.png "")
 
 You can see a menu, some sprites and labels, which all have an equivalent in
-Cocos2d-x.  Take a look at a few of your own game design documents,and see what
+Cocos2d-x.  Take a look at a few of your own game design documents, and see what
 components you have, you'll probably have a few that match up.
 
 ## Director
@@ -130,20 +138,11 @@ the __z-order__ to layout the `Scene`:
 ![](basic_concepts-img/layers.png "")
 
 The `Scene` on the left is actually made up of multiple `Node` objects
-that are given a different __z-order__ to make them "stack" on top of each other.
+that are given a different __z-order__ to make them *stack* on top of each other.
 
 In Cocos2d-x, you build the __scene graph__ using the *addChild()* API call:
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // Adds a child with the z-order of -2, that means
 // it goes to the "left" side of the tree (because it is negative)
 scene->addChild(title_node, -2);
@@ -154,14 +153,7 @@ scene->addChild(label_node);
 // Adds a child with the z-order of 1, that means
 // it goes to the "right" side of the tree (because it is positive)
 scene->addChild(sprite_node, 1);
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // Adds a child with the z-order of -2, that means
 // it goes to the "left" side of the tree (because it is negative)
 scene.addChild(title_node, -2);
@@ -172,9 +164,7 @@ scene.addChild(label_node);
 // Adds a child with the z-order of 1, that means
 // it goes to the "right" side of the tree (because it is positive)
 scene.addChild(sprite_node, 1);
-```
-
-  </div>
+{%- endcodetabs %}
 
 ## Sprites
 All games have `Sprite` objects, and you may or may not realize what they are.
@@ -196,16 +186,7 @@ a `Sprite`.
 `Sprites` are easy to create and they have configurable properties
 like: __position__, __rotation__, __scale__, __opacity__, __color__ and more.
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // This is how to create a sprite
 auto mySprite = Sprite::create("mysprite.png");
 
@@ -217,14 +198,7 @@ mySprite->setRotation(40);
 mySprite->setScale(2.0); // sets both the scale of the X and Y axis uniformly
 
 mySprite->setAnchorPoint(Vec2(0, 0));
-```
-
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // This is how to create a sprite
 var mySprite = new cc.Sprite(res.mySprite_png);
 
@@ -236,9 +210,7 @@ mySprite.setRotation(40);
 mySprite.setScale(2.0); // sets both the scale of the X and Y axis uniformly
 
 mySprite.setAnchorPoint(cc._p(0, 0));
-```
-
-  </div>
+{%- endcodetabs %}
 
 Let's illustrate each property, consider the following screenshot from
 the example code for this chapter:
@@ -274,29 +246,13 @@ sprite will be used as a base coordinate when setting the position of it.
 Using the character from our example game, and setting the anchor point to
 __0, 0__ using:
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 mySprite->setAnchorPoint(Vec2(0, 0));
-```
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 mySprite.setAnchorPoint(cc._p(0, 0));
-```
 
-  </div>
+{%- endcodetabs %}
 
 would result in the lower left corner of our sprite being used as the basis for
 any __setPosition()__ call. Let's see a few of these in action:
@@ -335,16 +291,7 @@ and after 5 seconds the sprite will move to a new position:
 
 `Action` objects are easy to create:
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Sprite::create("Blue_Front1.png");
 
 // Move a sprite 50 pixels to the right, and 10 pixels to the top over 2 seconds.
@@ -354,14 +301,8 @@ mySprite->runAction(moveBy);
 // Move a sprite to a specific location over 2 seconds.
 auto moveTo = MoveTo::create(2, Vec2(50,10));
 mySprite->runAction(moveTo);
-```
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Sprite(res.mySprite_png);
 
 // Move a sprite 50 pixels to the right, and 10 pixels to the top over 2 seconds.
@@ -371,9 +312,8 @@ mySprite.runAction(moveBy);
 // Move a sprite to a specific location over 2 seconds.
 var moveTo = new cc.MoveTo(2, cc._p(50,10));
 mySprite.runAction(moveTo);
-```
 
-  </div>
+{%- endcodetabs %}
 
 ## Sequences and Spawns
 With moving `Sprite` objects on the screen we have everything we need to create
@@ -391,16 +331,7 @@ gradually:
 
 This `Sequence` is easy to make:
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto mySprite = Node::create();
 
 // move to point 50,10 over 2 seconds
@@ -417,14 +348,8 @@ auto delay = DelayTime::create(1);
 
 mySprite->runAction(Sequence::create(moveTo1, delay, moveBy1, delay.clone(),
 moveTo2, nullptr));
-```
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var mySprite = new cc.Node();
 
 // move to point 50,10 over 2 seconds
@@ -441,9 +366,8 @@ var delay = new cc.DelayTime(1);
 
 mySprite.runAction(Sequence.create(moveTo1, delay, moveBy1, delay.clone(),
 moveTo2));
-```
 
-  </div>
+{%- endcodetabs %}
 
 This example runs a `Sequence`, in order, but what about running all the
 specified __Actions__ at the same time? Cocos2d-x supports this too and it
@@ -451,16 +375,7 @@ is called `Spawn`. `Spawn` will take all the specified `Action` objects and
 executes them at the same time. Some might be longer than others, so they won't
 all finish at the same time if this is the case.
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myNode = Node::create();
 
 auto moveTo1 = MoveTo::create(2, Vec2(50,10));
@@ -468,14 +383,8 @@ auto moveBy1 = MoveBy::create(2, Vec2(100,10));
 auto moveTo2 = MoveTo::create(2, Vec2(150,10));
 
 myNode->runAction(Spawn::create(moveTo1, moveBy1, moveTo2, nullptr));
-```
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var myNode = new cc.Node();
 
 var moveTo1 = new cc.MoveTo(2, cc._p(50,10));
@@ -483,9 +392,8 @@ var moveBy1 = new cc.MoveBy(2, cc._p(100,10));
 var moveTo2 = new cc.MoveTo(2, cc._p(150,10));
 
 myNode.runAction(Spawn.create(moveTo1, moveBy1, moveTo2));
-```
 
-  </div>
+{%- endcodetabs %}
 
 Why `Spawn` actions? Is there ever a reason? Sure! What if your main
 character has multiple __Actions__ when obtaining a power up? Maybe beating
@@ -504,69 +412,38 @@ rotation to all children:
 
 ![](basic_concepts-img/2n_parent_rotation.png "")
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myNode = Node::create();
 
 // rotating by setting
 myNode->setRotation(50);
-```
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var myNode = new cc.Node();
 
 // rotating by setting
 myNode.setRotation(50);
-```
 
-  </div>
+{%- endcodetabs %}
 
 Just like with rotation, if you change the scale of the parent the children
 will also get scaled:
 
 ![](basic_concepts-img/2n_parent_scaled.png "")
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myNode = Node::create();
 
 // scaling by setting
 myNode->setScale(2.0); // scales uniformly by 2.0
-```
-  </div>
 
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 var myNode = new cc.Node();
 
 // scaling by setting
 myNode.setScale(2.0); // scales uniformly by 2.0
-```
 
-  </div>
+{%- endcodetabs %}
 
 Not all changes to the __parent__ are passed down to its __children__. Changing the
 __parent__ __anchor point__ only affects transform operations (*scale*, *position*,
@@ -578,16 +455,7 @@ Sometimes, when your app is running, you might wish to see messages being writte
 to the console for informational or debug purposes. This is built into the
 engine, using __log()__. Example:
 
-<div class="langs">
-  <ul>
-    <li><a href="#" id="tab-cpp">C++</a></li>
-    <li><a href="#" id="tab-js">Javascript</a></li>
-  </ul>
-</div>
-  <div class="tab-cpp tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // a simple string
 log("This would be outputted to the console");
 
@@ -613,28 +481,30 @@ if (b == true)
     log("bool is true");
 else
     log("bool is false");
-```
-And, as expected, if you prefer you can use __std::cout__ in place of __log()__,
-however, __log()__ might offer easier formatting of complex output.
 
-  </div>
-
-  <div class="tab-js tab_content">
-
-<!-- insert any language specific wording here, i.e language specific to C++ or JavaScript -->
-```javascript
+{%- language name="JavaScript", type="js" -%}
 // a simple string
 cc.log("This would be outputted to the console");
 
 // outputting more than a simple string
 var pos = cc._p(sender.x, sender.y);
 cc.log("Position x: " + pos.x + ' y:' + pos.y);
-```
 
-  </div>
+{%- endcodetabs %}
+
+And, c++ users, if you prefer you can use __std::cout__ in place of __log()__,
+however, __log()__ might offer easier formatting of complex output.
 
 ## Conclusion
 We have gone through a lot of Cocos2d-x concepts. Take a deep breath.
 Don't worry. Just dive in with your ideas and take it one step at a time.
 Cocos2d-x and programming in general are not skills that are learned
 overnight. These take practice and understanding. Remember that the [forums](http://discuss.cocos2d-x.org) are also there to help you with questions.
+
+  </span>
+
+  <span class="tab-js tab_content">
+
+## 中文
+
+  </span>

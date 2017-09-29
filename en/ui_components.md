@@ -30,9 +30,9 @@ representation of each character in __.png__ format. If you are using a tool lik
 __Glyph Designer__ these files are created automatically for you. Creating a
 `Label` object from a __bitmap font__:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myLabel = Label::createWithBMFont("bitmapRed.fnt", "Your Text");
-```
+{%- endcodetabs %}
 
 ![](ui_components-img/LabelBMFont.png "")
 
@@ -49,9 +49,9 @@ create one you need to specify a __.ttf__ font file name, text string and a size
 Unlike `BMFont`, `TTF` can render size changes without the need for a separate
 font files. Example, using a __true type font__:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myLabel = Label::createWithTTF("Your Text", "Marker Felt.ttf", 24);
-```
+{%- endcodetabs %}
 
 ![](ui_components-img/LabelTTF.png "")
 
@@ -67,7 +67,7 @@ will use the same ingredients.
 
 You can create a `TTFConfig` object for your `Labels` in this way:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create a TTFConfig files for labels to share
 TTFConfig labelConfig;
 labelConfig.fontFilePath = "myFont.ttf";
@@ -79,7 +79,7 @@ labelConfig.distanceFieldEnabled = false;
 
 // create a TTF Label from the TTFConfig file.
 auto myLabel = Label::createWithTTF(labelConfig, "My Label Text");
-```
+{%- endcodetabs %}
 
 ![](ui_components-img/LabelTTFWithConfig.png "")
 
@@ -91,9 +91,9 @@ characters.
 This is a font that is meant not to have its properties changed. You should think
 of it as __system font, system rules__. Creating a `SystemFont` label:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myLabel = Label::createWithSystemFont("My Label Text", "Arial", 16);
-```
+{%- endcodetabs %}
 
 ![](ui_components-img/LabelWithSystemFont.png "")
 
@@ -106,34 +106,34 @@ and __glow__. You can apply one or more effects to a `Label` object easily:
 
 Label with a __shadow__ effect:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myLabel = Label::createWithTTF("myFont.ttf", "My Label Text", 16);
 
 // shadow effect is supported by all Label types
 myLabel->enableShadow();
-```
+{%- endcodetabs %}
 
 ![](ui_components-img/LabelWithShadow.png "")
 
 Label with a __outline__ effect:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myLabel = Label::createWithTTF("myFont.ttf", "My Label Text", 16);
 
 // outline effect is TTF only, specify the outline color desired
 myLabel->enableOutline(Color4B::WHITE, 1));
-```
+{%- endcodetabs %}
 
 ![](ui_components-img/LabelWithOutline.png "")
 
 Label with a __glow__ effect:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myLabel = Label::createWithTTF("myFont.ttf", "My Label Text", 16);
 
 // glow effect is TTF only, specify the glow color desired.
 myLabel->enableGlow(Color4B::YELLOW);
-```
+{%- endcodetabs %}
 
 ![](ui_components-img/LabelWithGlow.png "")
 
@@ -145,9 +145,9 @@ _About_, but could also contain other `Menu` objects for a nested menu system.
 A `Menu` object is a special type of `Node` object. You can create an  empty
 `Menu` object as a place holder for your __menu items__:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto myMenu = Menu::create();
-```
+{%- endcodetabs %}
 
 As we described options above of _Play_, _Quit_, _Settings_ and
 _About_, these are your __menu items__. A `Menu` without __menu items__ makes little
@@ -158,7 +158,7 @@ on the __menu item__ a __callback__ is triggered. You can think of this as a cha
 reaction. You tap/click the __menu item__ and it runs the code you specified. A
 `Menu` can have just a single item or many items.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // creating a menu with a single item
 
 // create a menu item by specifying images
@@ -167,11 +167,11 @@ CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
 
 auto menu = Menu::create(closeItem, NULL);
 this->addChild(menu, 1);
-```
+{%- endcodetabs %}
 
 A menu can also be created by using a __vector__ of `MenuItem` objects:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // creating a Menu from a Vector of items
 Vector<MenuItem*> MenuItems;
 
@@ -184,7 +184,7 @@ MenuItems.pushBack(closeItem);
 
 auto menu = Menu::createWithArray(MenuItems);
 this->addChild(menu, 1);
-```
+{%- endcodetabs %}
 
 If you run the sample code for this chapter you will see a `Menu` containing
 `Label` objects for `MenuItems`:
@@ -199,22 +199,22 @@ __Lambdas__ are also evaluated at runtime instead of compile time.
 
 A simple __lambda__:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // create a simple Hello World lambda
 auto func = [] () { cout << "Hello World"; };
 
 // now call it someplace in code
 func();
-```
+{%- endcodetabs %}
 
 Using a __lambda__ as a `MenuItem` callback:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 auto closeItem = MenuItemImage::create("CloseNormal.png", "CloseSelected.png",
 [&](Ref* sender){
 	// your code here
 });
-```
+{%- endcodetabs %}
 
 ## Buttons
 I doubt that we need to explain buttons much. We all know them as those things
@@ -225,7 +225,7 @@ A `Button` has a __normal__ and __selected__ state. The appearance of the `Butto
 change based upon it's state. Creating a `Button` and defining its __callback__
 is simple:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 #include "ui/CocosGUI.h"
 
 auto button = Button::create("normal_image.png", "selected_image.png", "disabled_image.png");
@@ -246,7 +246,7 @@ button->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
 });
 
 this->addChild(button);
-```
+{%- endcodetabs %}
 
 As you can see in the above example we specify a _.png_ image for each of the
 possible states the button can be in. A `Button` is made up of 3 graphics that
@@ -268,7 +268,7 @@ permits the user to make this type of choice. There are 5 different __states__ a
 `Checkbox` can have: __normal__, __selected__ and __disabled__. It is simple to create
 a `CheckBox`:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 #include "ui/CocosGUI.h"
 
 auto checkbox = CheckBox::create("check_box_normal.png",
@@ -291,7 +291,7 @@ checkbox->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
 });
 
 this->addChild(checkbox);
-```
+{%- endcodetabs %}
 
 As you can see in the above example we specify a _.png_ image for each of the
 possible states the `Checkbox` can be in. Since there are 5 possible states that
@@ -313,7 +313,7 @@ content it needed? It probably showed you a bar, filling in as it made progress
 accomplishing its task. This is often referred to as a __progress bar__, __status bar__
 or a __loading bar__. Creating a `LoadingBar`:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 #include "ui/CocosGUI.h"
 
 auto loadingBar = LoadingBar::create("LoadingBarFile.png");
@@ -322,14 +322,14 @@ auto loadingBar = LoadingBar::create("LoadingBarFile.png");
 loadingBar->setDirection(LoadingBar::Direction::RIGHT);
 
 this->addChild(loadingBar);
-```
+{%- endcodetabs %}
 
 In the above example a __loading bar__ is created and we set the direction it
 should fill towards as progress is made. In this case to the right direction.
 However, you probably need to change the percentage of the `LoadingBar`. This is
 easily done:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 #include "ui/CocosGUI.h"
 
 auto loadingBar = LoadingBar::create("LoadingBarFile.png");
@@ -342,7 +342,7 @@ loadingBar->setPercent(25);
 loadingBar->setPercent(35);
 
 this->addChild(loadingBar);
-```
+{%- endcodetabs %}
 
 As you can see in the above example we specify a _.png_ image for the `LoadingBar`
 objects texture:
@@ -358,7 +358,7 @@ Sometimes it is necessary to change a value slightly. Perhaps you have a charact
 and you want to allow the player to adjust the strength of attacking an enemy.
 A `Slider` allows users to set a value by moving an indicator. To create a `Slider`:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 #include "ui/CocosGUI.h"
 
 auto slider = Slider::create();
@@ -380,7 +380,7 @@ slider->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
 });
 
 this->addChild(slider);
-```
+{%- endcodetabs %}
 
 As you can see in the above example we specify a _.png_ image for each of the
 possible states the slider can be in. A `Slider` is made up of 5 graphics that
@@ -400,7 +400,7 @@ main character? Where would they type it into? Yes, a __text field__, of course.
 A `TextField` widget is used for inputting text. It supports touch event, focus,
 percent positioning and percent content size. To create a `TextField` widget:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 #include "ui/CocosGUI.h"
 
 auto textField = TextField::create("","Arial",30);
@@ -410,7 +410,7 @@ textField->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
 });
 
 this->addChild(textField);
-```
+{%- endcodetabs %}
 
 In this example a `TextField` is created and a __callback__ specified.
 
@@ -419,7 +419,7 @@ like the user to enter a secret password? Do you need to limit the number of
 characters a user can input? `TextField` objects have this all built-it and much
 more! Let's take a look at an example:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 #include "ui/CocosGUI.h"
 
 auto textField = TextField::create("","Arial",30);
@@ -435,7 +435,7 @@ textField->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
 });
 
 this->addChild(textField);
-```
+{%- endcodetabs %}
 
 On screen a `TextField` might look like this:
 

@@ -57,7 +57,7 @@ something underneath it. Touch events are usually assigned a priority and the
 event with the highest priority is the one that answers. Here is how you create
 a basic touch event listener:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 //  Create a "one by one" touch event listener
 // (processes one touch at a time)
 auto listener1 = EventListenerTouchOneByOne::create();
@@ -80,7 +80,7 @@ listener1->onTouchEnded = [=](Touch* touch, Event* event){
 
 // Add listener
 _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
-```
+{%- endcodetabs %}
 
 As you can see there are 3 distinct events that you can act upon when using a
 touch event listener. They each have a distinct time in which they are called.
@@ -98,7 +98,7 @@ you must __swallow__ it. To say it another way, you __consume__ it so that it
 doesn't get passed to other objects in highest to lowest priority. This is easy
 to do.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // When "swallow touches" is true, then returning 'true' from the
 // onTouchBegan method will "swallow" the touch event, preventing
 // other listeners from using it.
@@ -111,14 +111,14 @@ listener1->onTouchBegan = [](Touch* touch, Event* event){
 
     return true;
 };
-```
+{%- endcodetabs %}
 
 ## Creating a keyboard event
 For desktop games, you might want find using keyboard mechanics useful.
 Cocos2d-x supports keyboard events. Just like with touch events above,
 keyboard events are easy to create.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // creating a keyboard event listener
 auto listener = EventListenerKeyboard::create();
 listener->onKeyPressed = CC_CALLBACK_2(KeyboardTest::onKeyPressed, this);
@@ -136,7 +136,7 @@ void KeyboardTest::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 {
         log("Key with keycode %d released", keyCode);
 }
-```
+{%- endcodetabs %}
 
 ## Creating an accelerometer event
 Some mobile devices come equipped with an accelerometer. An accelerometer is a
@@ -145,10 +145,11 @@ be needing to move your phone back and forth, perhaps to simulate a balancing ac
 Cocos2d-x also supports these events and creating them is simple.
 Before using accelerometer events, you need to enable them on the device:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 Device::setAccelerometerEnabled(true);
-```
-```cpp
+{%- endcodetabs %}
+
+{% codetabs name="C++", type="cpp" -%}
 // creating an accelerometer event
 auto listener = EventListenerAcceleration::create(CC_CALLBACK_2(
 AccelerometerTest::onAcceleration, this));
@@ -160,12 +161,12 @@ void AccelerometerTest::onAcceleration(Acceleration* acc, Event* event)
 {
     //  Processing logic here
 }
-```
+{%- endcodetabs %}
 
 ## Creating a mouse event
 As it always has, Cocos2d-x supports mouse events.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 _mouseListener = EventListenerMouse::create();
 _mouseListener->onMouseMove = CC_CALLBACK_1(MouseTest::onMouseMove, this);
 _mouseListener->onMouseUp = CC_CALLBACK_1(MouseTest::onMouseUp, this);
@@ -205,7 +206,7 @@ void MouseTest::onMouseScroll(Event *event)
     string str = "Mouse Scroll detected, X: ";
     str = str + tostr(e->getScrollX()) + " Y: " + tostr(e->getScrollY());
 }
-```
+{%- endcodetabs %}
 
 ## Creating a Custom Event
 The event types above are defined by the system, and the events (such as touch
@@ -213,7 +214,7 @@ screen, keyboard response etc) are triggered by the system automatically. In
 addition, you can make your own custom events which are not triggered by the system,
 but by your code, as follows:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 _listener = EventListenerCustom::create("game_custom_event1", [=](EventCustom* event){
     std::string str("Custom event 1 received, ");
     char* buf = static_cast<char*>(event->getUserData());
@@ -223,12 +224,12 @@ _listener = EventListenerCustom::create("game_custom_event1", [=](EventCustom* e
 });
 
 _eventDispatcher->addEventListenerWithFixedPriority(_listener, 1);
-```
+{%- endcodetabs %}
 
 A custom event listener has been defined above, with a response method, and added
 to the event dispatcher. So how is the event handler triggered? Check it out:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 static int count = 0;
 ++count;
 
@@ -239,7 +240,7 @@ EventCustom event("game_custom_event1");
 event.setUserData(buf);
 
 _eventDispatcher->dispatchEvent(&event);
-```
+{%- endcodetabs %}
 
 The above example creates an EventCustom object and sets its UserData. It is then
 dispatched manually with `_eventDispatcher->dispatchEvent(&event)`. This triggers
@@ -250,17 +251,17 @@ stack variable can be used as the UserData.
 It is easy to register an event with the __Event Dispatcher__. Taking the sample
 touch event listener from above:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // Add listener
 _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1,
 sprite1);
-```
+{%- endcodetabs %}
 
 It is important to note that a touch event can only be registered once per object.
 If you need to use the same listener for multiple objects you should
 use __clone()__.
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 // Add listener
 _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1,
 sprite1);
@@ -271,14 +272,14 @@ _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(),
 
 _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(),
  sprite3);
-```
+{%- endcodetabs %}
 
 ## Removing events from the dispatcher
 An added listener can be removed with following method:
 
-```cpp
+{% codetabs name="C++", type="cpp" -%}
 _eventDispatcher->removeEventListener(listener);
-```
+{%- endcodetabs %}
 
 Although they may seem special, built-in `Node` objects use the __event dispatcher__
 in the same way we have talked out. Makes sense, right? Take `Menu` for an example.
