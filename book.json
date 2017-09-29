@@ -5,7 +5,7 @@
         "github-issue-feedback-language",
         "search-title",
         "anchorjs",
-        "toggle-chapters",
+        "expandable-chapters",
         "sharing",
         "components"     
     ],
@@ -54,6 +54,9 @@
                 "prepend": "false"
               }
             ]
+        },
+        "expandable-chapters":{
+            
         }
     }    
 }
