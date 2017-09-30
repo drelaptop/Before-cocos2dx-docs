@@ -1,4 +1,4 @@
-# Cocos Creator User Manual
+# Manual
 
 ## Requirements
 
