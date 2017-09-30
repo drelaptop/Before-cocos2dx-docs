@@ -2,12 +2,17 @@
 
 ## 简介
 
+```
+Get Path:
+<img src="./installation/android-studio-intallation/installation.md"></a>
+```
+
 - [环境搭建](./installation/index.md)
     - [系统要求](installation/A.md)
-    - [Android](installation/Android-terminal.md)
+    - [Android](./installation/android-studio-intallation/installation.md)
         - [命令行](installation/Android-terminal.md)
         - [Visual Studio](installation/Android-VisualStudio.md)
-        - [Android Studio](installation/Android-Studio.md)
+        - [Android Studio](./installation/android-studio-intallation/installation.md)
         - [Eclipse](installation/Android-Eclipse.md)
     - [IOS](installation/iOS.md)
     - [Mac OS X](installation/OSX.md)

@@ -5,7 +5,7 @@
 1. 下载安装 Android Studio v2.3.3，由于 Android 开发者官网国内访问缓慢，可以选择从[Android Studio 中文社区](http://www.android-studio.org/index.php/download)下载对应版本。
 1. 完成 Android Studio 安装，进入欢迎界面，选择 `Import project(Eclipse ADT, Gradle, etc.)`。选择目录`COCOS2DX_HOME/tests/cpp-tests/proj.android-studio`，点击 `OK` 进入IDE主界面。
 
-    <a href="src/import-project.png" target="_blank"><img src="src/import-project.png" alt="Import"></a>
+    <a href="src/Import-project.png" target="_blank"><img src="src/Import-project.png" alt="Import"></a>
 
 1. 第一次导入 cocos2d-x 工程，控制台会提示缺少组件，点击提示下方的链接，下载安装即可。提示类似： 
     ```
