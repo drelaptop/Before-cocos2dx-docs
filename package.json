@@ -1,5 +1,5 @@
 {
-  "name": "cocos2dx-docs-pre-test",
+  "name": "cocos2d-x-docs",
   "version": "1.16",
   "description": "Documentation",
   "main": "index.js",
@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drelaptop/just4test.git"
+    "url": "git+https://github.com/cocos2d/cocos2d-x-docs.git"
   },
   "author": "",
   "license": "",
   "bugs": {
-    "url": "https://github.com/drelaptop/just4test/issues"
+    "url": "https://github.com/cocos2d/cocos2d-x-docs/issues"
   },
-  "homepage": "https://github.com/drelaptop/just4test#readme"
+  "homepage": "https://github.com/cocos2d/cocos2d-x-docs"
 }
