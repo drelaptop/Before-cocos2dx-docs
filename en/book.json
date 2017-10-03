@@ -3,6 +3,7 @@
         "summary": "SUMMARY.md",
         "readme": "index.md"
     },
+      "root": ".",
     "variables": {
         "navlinks": [
             {
